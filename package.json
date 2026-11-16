@@ -1,0 +1,10 @@
+{
+  "name": "submission-forms-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interface web para converter input-forms.xml do DSpace 5 para o DSpace 9",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
