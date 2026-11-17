@@ -4,30 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DSpace Converter API</title>
-  <link rel="stylesheet" href="src/styles/main.css">
+  <link rel="stylesheet" href="src/styles/output.css">
 </head>
-<body>
-  <main class="container">
-    <h1>🔄 DSpace Converter</h1>
-    <p class="subtitle">Converta input-forms.xml de DSpace 5 para DSpace 9</p>
+<body class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-500 to-purple-700 flex items-center justify-center p-5">
+  <main class="bg-white rounded-xl shadow-2xl p-10 max-w-md w-full">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">🔄 DSpace Converter</h1>
+    <p class="text-center text-gray-600 text-sm mb-8">Converta input-forms.xml de DSpace 5 para DSpace 9</p>
 
-    <form id="upload-form">
-      <div class="form-group">
-        <label for="file-input">Selecione o arquivo input-forms.xml</label>
-        <div class="file-input-wrapper" id="drop-zone">
-          <input type="file" id="file-input" name="file" accept=".xml" required>
+    <form id="upload-form" class="space-y-6">
+      <div>
+        <label for="file-input" class="block text-gray-400 font-semibold text-sm mb-3">Selecione o arquivo input-forms.xml</label>
+        <div class="relative inline-block w-full" id="drop-zone">
+          <input type="file" id="file-input" name="file" accept=".xml" required class="absolute opacity-0 w-full h-full cursor-pointer">
           <div class="file-input-label">📁 Clique ou arraste o arquivo aqui</div>
-          <div class="file-name" id="file-name"></div>
+          <div class="file-name text-gray-600 text-xs text-center mt-2" id="file-name"></div>
         </div>
       </div>
 
-      <button type="submit" id="submit-button">Converter</button>
-      <p class="note">⚠️ <strong>Observação importante:</strong> após a conversão, é fundamental realizar a análise do arquivo gerado para reorganizar ou ajustar campos e formulários antes de utilizá-lo no DSpace 9.</p>
+      <div id="toggle-container"></div>
+
+      <button type="submit" id="submit-button" class="btn-primary">Converter</button>
+
+      <p class="text-xs text-gray-600 bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
+        ⚠️ <strong>Observação importante:</strong> após a conversão, é fundamental realizar a análise do arquivo gerado para reorganizar ou ajustar campos e formulários antes de utilizá-lo no DSpace 9.
+      </p>
     </form>
 
-    <section class="result" id="result" aria-live="polite">
-      <h3 id="result-title"></h3>
-      <p id="result-message"></p>
+    <section class="hidden mt-6 p-5 rounded-lg" id="result" aria-live="polite">
+      <h3 id="result-title" class="mb-2 text-base font-semibold"></h3>
+      <p id="result-message" class="text-sm leading-relaxed break-words"></p>
       <a href="#" class="download-link" id="download-link" hidden>⬇️ Baixar resultado</a>
     </section>
   </main>

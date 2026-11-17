@@ -5,6 +5,17 @@
   "description": "Interface web para converter input-forms.xml do DSpace 5 para o DSpace 9",
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "dev": "npm run watch:css",
+    "build:css": "tailwindcss -i src/styles/main.css -o src/styles/output.css",
+    "watch:css": "tailwindcss -i src/styles/main.css -o src/styles/output.css --watch",
+    "test": "node --test",
+    "test:watch": "node --test --watch",
+    "lint": "eslint src/js/**/*.js",
+    "format": "prettier --write \"src/js/**/*.js\" \"*.md\" \"index.html\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.6"
   }
 }

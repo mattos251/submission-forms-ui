@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+*.log
+npm-debug.log*
+src/styles/output.css
+.env
+.env.local

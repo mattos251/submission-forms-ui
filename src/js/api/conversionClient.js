@@ -7,12 +7,13 @@ export class ConversionError extends Error {
   }
 }
 
-export async function convertInputForms(file, fetchFn = fetch) {
+export async function convertInputForms(file, fetchFn = fetch, { keepCommentedFields = true } = {}) {
   const formData = new FormData();
   formData.append('file', file);
+  const query = new URLSearchParams({ keepCommentedFields: String(keepCommentedFields) });
 
   try {
-    const response = await fetchFn(API_URL, { method: 'POST', body: formData });
+    const response = await fetchFn(`${API_URL}?${query}`, { method: 'POST', body: formData });
     if (!response.ok) {
       throw new ConversionError(await readErrorMessage(response));
     }
